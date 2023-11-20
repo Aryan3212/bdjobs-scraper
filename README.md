@@ -3,7 +3,7 @@ DISCLAIMER: This is obviously only for educational and research purposes.
 
 A script to scrape BDjobs using concurrent requests, retry mechanism and efficient file I/O usage.
 
-This script goes throught the list of jobs in BDJobs, goes to the details page, extracts the important properties of each job posting and saves it to a CSV file on disk.
+This script goes through the list of jobs in BDJobs, goes to the details page, extracts the important properties of each job posting and saves it to a CSV file on disk.
 
 Requests to the website are made concurrently with 4 concurrent requests for the list page, and 15 for the details page. Doing it without using AsyncIO would take 1s * 5000 = 5000s which is 83 minutes.
 
