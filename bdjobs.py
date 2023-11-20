@@ -133,7 +133,6 @@ async def main():
     
     links += flatten(results)
 
-    # list to store the data for jobs, we'll use this to create a CSV file
     # open a unique new CSV file to append to
     now = datetime.now()
     timestamp = datetime.timestamp(now)
