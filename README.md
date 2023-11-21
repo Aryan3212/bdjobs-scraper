@@ -13,8 +13,6 @@ Along with that we're extracting all the important data using BeautifulSoup4 and
 
 Although writing to disk in this way can take up more time this is much more memory efficient as we're only storing 1 page in memory each time and not 5000 pages all together and dumping them.
 
-Moreover, I put in a rudimentary retry mechanism for any failed requests, that might happen due to timeouts. I just put back the requested URL in a queue where it is processed later.
-
-There's 1 line of code in this script that I've put in to prevent abuse.
+Moreover, I put in a simple retry mechanism for any failed requests, that might happen due to timeouts. I just put back the requested URL in a queue where it is processed later.
 
 My reason for doing this was to get an idea of the job market in Bangladesh in recent times, so I needed the data.
