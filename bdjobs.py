@@ -24,7 +24,6 @@ DIV_CLASSES = {
 retry = []
 
 async def fetch_url(url, session):
-    time.sleep(200)
     async with session.get(url) as resp:
         if resp.status:
             return await resp.text()
