@@ -41,9 +41,9 @@ def flatten(list_of_elements):
 
 
 # function to parse all the data from a job details page
-async def extract_page_data(parsed_page):
+async def extract_page_data(page):
+    parsed_page = BeautifulSoup(page, 'html.parser')
     page_object = {}
-
     published_on = parsed_page.select('.job-summary div.panel-body > h4:first-child')
     if len(published_on) > 0:
         page_object['published_on'] = published_on[0].contents[2].strip()
@@ -97,9 +97,8 @@ async def get_details_page(link, writer, session):
     except Exception as e:
         retry.append(link)
         return None
-    parsed_page = BeautifulSoup(page, 'html.parser')
     try:
-        page_object = await extract_page_data(parsed_page)
+        page_object = await extract_page_data(page)
     except Exception as e:
         print(f"Error while parsing the page: {repr(e)}")
     # write to a CSV file on disk
