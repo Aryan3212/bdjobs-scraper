@@ -1,9 +1,15 @@
 import unittest
-import scraper
+import asyncio
+import os
+from scraper import bdjobs
+
 
 class TestBDJobsScraper(unittest.TestCase):
-    def test_scraper(self):
-       self.assertEqual(2, 2)
+    def test_details_parser(self):
+        with open('tests/details-page.html') as details_page:
+            self.assertEqual(
+                asyncio.run(bdjobs.extract_page_data(details_page)),
+                {'published_on': '30 Nov 2023', 'job_title': 'SQA Engineer / Software Tester', 'company_name': 'Talent Pro ', 'vacancies': 'Not specific', 'job_source': 'Bdjobs.com Online Job Posting.', 'salary_range': None, 'job_location': 'Dhaka (Banani)', 'job_requirements': 'Age 25 to 40 years \nRelevant professional Certifications would be a plus.\nGood in communications with excellent English language ability.\nFamiliar with software testing methods and software engineering knowledge, familiar with defect management process and quality control;\nFamiliar with testing related technologies, familiar with tool frameworks such as Selenium, Postman, Jmeter, etc. is preferred;\nFamiliar with large database systems, able to use SQL language proficiently; Familiar with any language user such as PHP, Go, Java, Ruby, Python is preferred;\nStrong learning ability, rigorous work attitude, high sense of responsibility, proactive, strong coordination and communication skills; good sense of teamwork, able to communicate effectively with project team members;\nProficient in automated testing, performance testing, strong technical ability;\nTest Automation in Java or any other language\nExperience in using JMeter and Junit\nVarious level testing experience with proper documentation\nExperienced with related tools and technologies\nOther Skills Requirements\nProficient in English (oral & written)\nGood troubleshooting skills.\nContinuous learner.\nProactive.\nPossesses sense of ownership.\nInterest in the work being done.', 'education_requirements': 'At least BS degree in Computer Science and Engineering (CSE) from any reputed university.\nBachelor degree (inclusive) or above, more than 1 year experience in testing work, those with experience in software testing or development are preferred;', 'experience_requirements': 'At least 5 year(s)', 'employment_status': 'Full-time', 'job_modality': 'Full-time', 'job_description': 'Participate in product requirements analysis and design review;\nDevelop test plans, write and execute test cases, perform defect tracking and quality analysis;\nGuarantee the quality of the system under test, and strive to improve product quality and R&D efficiency through testing process and method innovation;\nResponsible for functional testing, performance testing, APP special testing, etc. of related projects;\nResponsible for the automated development of test cases to improve test coverage and execution efficiency;\nAssist development to locate bugs.\nDoing best practice with automation testing\nEnsure various testing like load testing, stress testing, regression testing with various tools\nDevelop test plans, write and execute test cases, perform defect tracking and quality analysis;\nGuarantee the quality of the system under test, and strive to improve product quality and R&D efficiency through testing process and method innovation;\nResponsible for functional testing, performance testing, APP special testing, etc. of related projects;\nResponsible for the automated development of test cases to improve test coverage and execution efficiency;\nAssist development to locate bugs.'}, 'The details listing should parse all the data properties properly.')
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(verbosity=2)
