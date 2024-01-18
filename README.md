@@ -1,3 +1,5 @@
+# This does not work as of now, I'm working on an update for the new changes to BDJobs UI.
+
 # bdjobs-scraper
 DISCLAIMER: This is obviously only for educational and research purposes.
 
