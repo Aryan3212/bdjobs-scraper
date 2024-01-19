@@ -1,6 +1,7 @@
 # This does not work as of now.
 Update: I saw the current UI and don't feel like it's feasible to scrape this website anymore as of Jan 2024. The data isn't formatted or displayed properly, therefore I'm abandoning this.
 
+Uploaded an existing dataset on Kaggle: https://www.kaggle.com/datasets/aryanrahman/bdjobs-all-job-listings-20-november-5pm
 Requirements:
 - Python 3.10+
 
