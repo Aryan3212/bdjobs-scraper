@@ -1,4 +1,4 @@
-# This does not work as of now, I'm working on an update for the new changes to BDJobs UI.
+# This does not work as of now.
 Update: I saw the current UI and don't feel like it's feasible to scrape this website anymore as of Jan 2024. The data isn't formatted or displayed properly, therefore I'm abandoning this.
 
 Requirements:
