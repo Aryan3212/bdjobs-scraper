@@ -1,6 +1,10 @@
 # This does not work as of now, I'm working on an update for the new changes to BDJobs UI.
 
+Requirements:
+- Python 3.10+
+
 Commands:
+- Create virtual environment: `python3 -m venv venv`
 - Install dependencies: `pip install -r requirements.txt`
 - Run tests: `python3 -m unittest -v tests/test.py`
 - Run script: `python3 scraper/bdjobs.py`
