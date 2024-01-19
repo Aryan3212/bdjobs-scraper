@@ -1,5 +1,10 @@
 # This does not work as of now, I'm working on an update for the new changes to BDJobs UI.
 
+Commands:
+- Install dependencies: `pip install -r requirements.txt`
+- Run tests: `python3 -m unittest -v tests/test.py`
+- Run script: `python3 scraper/bdjobs.py`
+
 # bdjobs-scraper
 DISCLAIMER: This is obviously only for educational and research purposes.
 
