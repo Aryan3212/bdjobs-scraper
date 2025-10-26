@@ -94,7 +94,7 @@ The BDJobs website underwent a major overhaul, migrating from server-side render
    - `pg=X` is the page number
    - Returns ~60 jobs per page (50 regular + 10 premium)
 
-   **Details API** - Returns complete job information:
+   **Details API** - Returns complete job information, this URL was hidden inside the bundle used by Angular:
    ```
    https://gateway.bdjobs.com/ActtivejobsTest/api/JobSubsystem/jobDetails?jobId=X
    ```
