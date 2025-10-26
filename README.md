@@ -23,7 +23,7 @@ A scraper for BDJobs.com that uses their REST API to collect comprehensive job m
 
 ```bash
 # Clone the repo
-git clone <repo-url>
+git clone git@github.com:Aryan3212/bdjobs-scraper.git
 cd bdjobs-scraper
 
 # Create virtual environment
