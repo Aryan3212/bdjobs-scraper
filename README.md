@@ -1,5 +1,4 @@
-# This does not work as of now.
-Update: I saw the current UI and don't feel like it's feasible to scrape this website anymore as of Jan 2024. The data isn't formatted or displayed properly, therefore I'm abandoning this.
+# Disclaimer: This scraper is bound to be brittle and may break if any of the APIs change
 
 Uploaded an existing dataset on Kaggle: https://www.kaggle.com/datasets/aryanrahman/bdjobs-all-job-listings-20-november-5pm
 
@@ -18,6 +17,64 @@ Commands:
 
 A scraper for BDJobs.com that uses their REST API to collect comprehensive job market data from Bangladesh. The scraper extracts 31+ fields per job including salary, requirements, company info, and more.
 
+## Usage
+
+## Installation
+
+```bash
+# Clone the repo
+git clone <repo-url>
+cd bdjobs-scraper
+
+# Create virtual environment
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+### Full Scrape
+
+Scrapes all ~5,500 jobs (takes ~20-30 minutes):
+
+```bash
+python scraper/bdjobs.py
+```
+
+Output: `dataset/bdjobs-{timestamp}.csv`
+
+### Test with Small Sample
+
+Edit `test_quick.py` to configure:
+
+```python
+TEST_PAGES = 1        # Number of pages to fetch (50 jobs/page)
+TEST_JOBS_LIMIT = 5   # Max jobs to process (or None for all)
+```
+
+Then run:
+
+```bash
+python test_quick.py
+```
+
+Output: `dataset/bdjobs-test-{timestamp}.csv`
+
+### Run Tests
+
+```bash
+PYTHONPATH=. python tests/test.py
+```
+
+
+## Performance
+
+- **List API**: ~110 pages × 0.25s = ~28 seconds
+- **Details API**: ~5,500 jobs in batches of 20 = ~5-8 minutes
+- **Total Time**: ~10 minutes for complete dataset
+- **Output Size**: ~13MB CSV with all jobs
+
+## Technical Notes
 ## How We Found The API
 
 The BDJobs website underwent a major overhaul, migrating from server-side rendered pages to an Angular SPA. This initially broke our HTML-based scraper, but led us to discover a much better solution.
@@ -108,65 +165,6 @@ The BDJobs website underwent a major overhaul, migrating from server-side render
 - Application: deadlines, instructions, online apply option, email/URL
 - Location: job location
 - Dates: posted date, deadline
-
-## Usage
-
-## Installation
-
-```bash
-# Clone the repo
-git clone <repo-url>
-cd bdjobs-scraper
-
-# Create virtual environment
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-```
-### Full Scrape
-
-Scrapes all ~5,500 jobs (takes ~20-30 minutes):
-
-```bash
-python scraper/bdjobs.py
-```
-
-Output: `dataset/bdjobs-{timestamp}.csv`
-
-### Test with Small Sample
-
-Edit `test_quick.py` to configure:
-
-```python
-TEST_PAGES = 1        # Number of pages to fetch (50 jobs/page)
-TEST_JOBS_LIMIT = 5   # Max jobs to process (or None for all)
-```
-
-Then run:
-
-```bash
-python test_quick.py
-```
-
-Output: `dataset/bdjobs-test-{timestamp}.csv`
-
-### Run Tests
-
-```bash
-PYTHONPATH=. python tests/test.py
-```
-
-
-## Performance
-
-- **List API**: ~110 pages × 0.25s = ~28 seconds
-- **Details API**: ~5,500 jobs in batches of 20 = ~5-8 minutes
-- **Total Time**: ~10 minutes for complete dataset
-- **Output Size**: ~13MB CSV with all jobs
-
-## Technical Notes
 
 ### Rate Limiting Strategy
 
